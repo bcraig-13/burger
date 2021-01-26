@@ -2,18 +2,18 @@
 
 <h2>Add a burger!</h2>
 <form class="create-form">
-    <div class="form-group">
-        <label for="burg-name">Burger Name:</label>
-        <input type="text" id="burg-name" name="burger_name">
-    </div>
-    <button type="submit">Add burger</button>
+  <div class="form-group">
+    <label for="burg-name">Burger Name:</label>
+    <input type="text" id="burg-name" name="burger_name">
+  </div>
+  <button type="submit">Add burger</button>
 </form>
 
 <h2>All of your burgers</h2>
 <ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
+  {{#each burgers}}
+  {{!-- {{#unless devoured}}
+  {{> burgers/burger-block devoured=true}}
+  {{/unless}} --}}
   {{/each}}
 </ul>

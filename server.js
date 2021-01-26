@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers/burgersController.js");
+const path = require("path");
 
 const PORT = process.env.PORT || 8080;
 
@@ -8,7 +9,7 @@ const app = express();
 
 // Serve static content for the app from the "public" directory in the
 // application directory.
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "./public")));
 
 // Parse application body
 app.use(express.urlencoded({ extended: true }));
