@@ -1,6 +1,5 @@
-const orm = "config/orm.js";
+const orm = require("../config/orm.js");
 
-//call orm functions here
 const burger = {
   all: (cb) => {
     orm.selectAll("burgers", (res) => {
