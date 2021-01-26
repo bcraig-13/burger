@@ -12,9 +12,22 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/api/burger", (req, res) => {
+router.post("/api/burgers", (req, res) => {
     burger.create({ name: req.body.burger_name, devoured: req.body.devoured }, (result) => {
         res.json({ id: result.insertId });
     });
 });
 
+router.put("/api/burgers/:id/devoured", (req, res) => {
+    const eaten = { id: req.params.id };
+    const update = { devoured: req.body.value };
+
+    burger.update(update, eaten, (result) => {
+        if (result.affectedRows === 0) {
+            return res.status(404).end();
+        }
+        res.status(200).end();
+    })
+})
+
+module.exports = router;
