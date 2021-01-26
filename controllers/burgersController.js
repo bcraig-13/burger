@@ -18,9 +18,9 @@ router.post("/api/burgers", (req, res) => {
     });
 });
 
-router.put("/api/burgers/:id/devoured", (req, res) => {
+router.put("/api/burgers/:id", (req, res) => {
     const eaten = { id: req.params.id };
-    const update = { devoured: req.body.value };
+    const update = { devoured: true };
 
     burger.update(update, eaten, (result) => {
         if (result.affectedRows === 0) {
@@ -29,5 +29,4 @@ router.put("/api/burgers/:id/devoured", (req, res) => {
         res.status(200).end();
     })
 })
-
 module.exports = router;

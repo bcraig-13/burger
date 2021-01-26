@@ -14,12 +14,12 @@ $(() => {
     });
   });
 
-  $("devour").on("click", function () {
+  $(".devour").on("click", function () {
     const id = $(this).data("id");
     const eaten = $(this).data("eaten");
     const inBelly = { value: eaten };
 
-    $.ajax(`/api/burgers/${id}/devoured`, {
+    $.ajax(`/api/burgers/${id}`, {
       type: "PUT",
       data: JSON.stringify(inBelly),
       contentType: "application/json; charset=UTF-8",

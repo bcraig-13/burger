@@ -12,8 +12,17 @@
 <h2>All of your burgers</h2>
 <ul>
   {{#each burgers}}
-  {{!-- {{#unless devoured}}
+  {{#unless devoured}}
+  {{> burgers/burger-block devoured=false}}
+  {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>In your belly</h2>
+<ul>
+  {{#each burgers}}
+  {{#if this.devoured}}
   {{> burgers/burger-block devoured=true}}
-  {{/unless}} --}}
+  {{/if}}
   {{/each}}
 </ul>
